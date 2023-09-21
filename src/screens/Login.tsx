@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [form, setForm] = useState({ email: '', password: '' });
   const { email, password } = form;
+
+  // useNavigate;
+  const navigate = useNavigate();
 
   const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -14,6 +18,10 @@ function Login() {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
+    // LocalStorage (Req 5);
+    localStorage.setItem('user', JSON.stringify({ email }));
+    // Redireciona a pessoa usuária para a tela principal de receitas de comidas;
+    navigate('/meals');
   };
 
   return (

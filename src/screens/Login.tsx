@@ -4,7 +4,7 @@ function Login() {
   const [form, setForm] = useState({ email: '', password: '' });
   const { email, password } = form;
 
-  const regexEmail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+  const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement
   | HTMLSelectElement>) => {
@@ -19,22 +19,32 @@ function Login() {
   return (
     <div>
       <form onSubmit={ handleSubmit }>
-        <input
-          data-testid="email-input"
-          type="email"
-          name="email"
-          id="email"
-          onChange={ handleChange }
-          placeholder="Digite seu e-mail"
-        />
-        <input
-          data-testid="password-input"
-          type="password"
-          name="password"
-          id="password"
-          onChange={ handleChange }
-          placeholder="Digite sua senha"
-        />
+        <label>
+          Login:
+          {' '}
+          <input
+            data-testid="email-input"
+            type="email"
+            name="email"
+            id="email"
+            onChange={ handleChange }
+            placeholder="Digite seu e-mail"
+          />
+        </label>
+
+        <label>
+          Senha:
+          {' '}
+          <input
+            data-testid="password-input"
+            type="password"
+            name="password"
+            id="password"
+            onChange={ handleChange }
+            placeholder="Digite sua senha"
+          />
+        </label>
+
         <button
           data-testid="login-submit-btn"
           type="submit"

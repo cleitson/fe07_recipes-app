@@ -4,6 +4,10 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './screens/Login';
 import Meals from './screens/Meals';
+import Profile from './screens/Profile';
+import FavoriteRecipes from './screens/FavoriteRecipes';
+import Drinks from './screens/Drinks';
+import DoneRecipes from './screens/DoneRecipes';
 
 function App() {
   return (
@@ -11,6 +15,10 @@ function App() {
     <Routes>
       <Route path="/" element={ <Login /> } />
       <Route path="/meals" element={ <Meals /> } />
+      <Route path="/done-recipes" element={ <DoneRecipes /> } />
+      <Route path="/drinks" element={ <Drinks /> } />
+      <Route path="/favorite-recipes" element={ <FavoriteRecipes /> } />
+      <Route path="/profile" element={ <Profile /> } />
     </Routes>
   );
 }

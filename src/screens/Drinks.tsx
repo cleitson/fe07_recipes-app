@@ -2,11 +2,13 @@
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
 
-export default function Meals() {
+export default function Drinks() {
   return (
-    <header>
-      <h1 data-testid="page-title">Meals</h1>
-      <img src={ profileIcon } alt="Profile icon" data-testid="profile-top-btn" />
+    <div>
+      <header>
+        <h1 data-testid="page-title">Drinks</h1>
+        <img src={ profileIcon } alt="Profile icon" data-testid="profile-top-btn" />
+      </header>
       <div>
         <input
           type="search"
@@ -16,6 +18,6 @@ export default function Meals() {
           <img src={ searchIcon } alt="Search icon" data-testid="search-top-btn" />
         </button>
       </div>
-    </header>
+    </div>
   );
 }

@@ -1,9 +1,15 @@
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
 
 describe('Teste da tela de login', () => {
-  render(<App />);
+  render(
+    // BrowserRouter é necessário para que o teste funcione;
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>,
+  );
 
   const inputLogin = screen.getByTestId('email-input');
   const inputPassword = screen.getByTestId('password-input');

@@ -1,11 +1,10 @@
 // Componente da tela principal de receitas de comidas;
-import profileIcon from '../images/profileIcon.svg';
+import Header from '../components/Header';
 
 export default function FavoriteRecipes() {
   return (
     <header>
-      <h1 data-testid="page-title">Favorite Recipes</h1>
-      <img src={ profileIcon } alt="Profile icon" data-testid="profile-top-btn" />
+      <Header title="Favorite Recipes" />
     </header>
   );
 }

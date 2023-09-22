@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
+import SearchBar from './SearchBar';
 
 type HeaderProps = {
   title: string;
@@ -35,21 +36,23 @@ function Header({ title }: HeaderProps) {
   };
 
   return (
-    <header>
-      <h1 data-testid="page-title">{title}</h1>
+    <>
+      <header>
+        <h1 data-testid="page-title">{title}</h1>
 
-      {(title === 'Profile' || title === 'Done Recipes' || title === 'Favorite Recipes')
-        && (profileIconBtn())}
+        {(title === 'Profile' || title === 'Done Recipes' || title === 'Favorite Recipes')
+          && (profileIconBtn())}
 
-      {(title === 'Drinks' || title === 'Meals')
-        && (
-          <>
-            {profileIconBtn()}
-            {searchIconBtn()}
-          </>
-        )}
-    </header>
-
+        {(title === 'Drinks' || title === 'Meals')
+          && (
+            <>
+              {profileIconBtn()}
+              {searchIconBtn()}
+            </>
+          )}
+      </header>
+      <SearchBar />
+    </>
   );
 }
 

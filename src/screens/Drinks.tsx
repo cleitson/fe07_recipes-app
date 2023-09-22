@@ -4,11 +4,13 @@ import Header from '../components/Header';
 
 export default function Drinks() {
   return (
-    <div>
+    <>
       <header>
-        <Header title="Drinks" />
+        <Header />
       </header>
-      <Footer />
-    </div>
+      <div>
+        <Footer />
+      </div>
+    </>
   );
 }

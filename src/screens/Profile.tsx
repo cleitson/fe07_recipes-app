@@ -4,11 +4,13 @@ import Header from '../components/Header';
 
 export default function Profile() {
   return (
-    <div>
+    <>
       <header>
-        <Header title="Profile" />
+        <Header />
       </header>
-      <Footer />
-    </div>
+      <div>
+        <Footer />
+      </div>
+    </>
   );
 }

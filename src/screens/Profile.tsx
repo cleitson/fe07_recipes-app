@@ -5,9 +5,9 @@ import Header from '../components/Header';
 export default function Profile() {
   return (
     <>
-      <header>
-        <Header />
-      </header>
+      <span>
+        teste
+      </span>
       <div>
         <Footer />
       </div>

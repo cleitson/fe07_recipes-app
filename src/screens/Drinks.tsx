@@ -5,12 +5,9 @@ import Header from '../components/Header';
 export default function Drinks() {
   return (
     <>
-      <header>
-        <Header />
-      </header>
-      <div>
-        <Footer />
-      </div>
+      <Header />
+      <p>driks</p>
+      <Footer />
     </>
   );
 }

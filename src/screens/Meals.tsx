@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import recipeAppContext from '../context/recipeAppContext';
-// import Header from '../components/Header';
 import { MealsType } from '../types';
+import Footer from '../components/Footer/Footer';
+import Header from '../components/Header';
 
 export default function Meals() {
   const { apiData, loading } = useContext(recipeAppContext);
@@ -37,6 +38,9 @@ export default function Meals() {
           );
         })
       )}
+      <div>
+        <Footer />
+      </div>
     </>
   );
 }

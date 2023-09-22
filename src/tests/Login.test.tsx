@@ -1,45 +1,29 @@
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import userEvent from '@testing-library/user-event';
+import { screen } from '@testing-library/react';
 import App from '../App';
+import { renderWithRouter } from '../utils/renderWithRouter';
 
 describe('Teste da tela de login', () => {
-  render(
-    // BrowserRouter é necessário para que o teste funcione;
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
-  );
-
-  const inputLogin = screen.getByTestId('email-input');
-  const inputPassword = screen.getByTestId('password-input');
-  const button = screen.getByRole('button', { name: /enter/i });
-
-  // it('checks inputs and buttons are on screen', () => {
-  //   expect(inputLogin).toBeInTheDocument();
-
-  //   expect(inputPassword).toBeInTheDocument();
-
-  //   expect(button).toBeInTheDocument();
-  // });
-
   it('checks if the button is enabled', async () => {
-    await userEvent.type(inputLogin, 'test@test.com');
+    const { user } = renderWithRouter(<App />, { route: '/' });
+    const inputLogin = screen.getByTestId('email-input');
+    const inputPassword = screen.getByTestId('password-input');
+    const button = screen.getByRole('button', { name: /enter/i });
 
-    await userEvent.type(inputPassword, '1234567');
+    await user.type(inputLogin, 'test@test.com');
 
-    await userEvent.click(button);
+    await user.type(inputPassword, '1234567');
 
-    expect(button).not.toBeDisabled();
+    expect(button).toBeEnabled();
   });
+  it('checks if after login have a key user on localstorage', async () => {
+    const { user } = renderWithRouter(<App />, { route: '/' });
+    const inputLogin = screen.getByTestId('email-input');
+    const inputPassword = screen.getByTestId('password-input');
+    const button = screen.getByRole('button', { name: /enter/i });
 
-  // it('checks if the button is not enabled', async () => {
-  //   await userEvent.type(inputLogin, 'te-#st@test.com');
-
-  //   await userEvent.type(inputPassword, '1234');
-
-  //   await userEvent.click(button);
-
-  //   expect(button).toBeDisabled();
-  // });
+    await user.type(inputLogin, 'test@test.com');
+    await user.type(inputPassword, '1234567');
+    await user.click(button);
+    expect(localStorage.getItem('user')).toBeTruthy();
+  });
 });

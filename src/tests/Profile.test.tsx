@@ -1,23 +1,10 @@
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import { ReactElement, JSXElementConstructor } from 'react';
+import { screen } from '@testing-library/react';
 import App from '../App';
-import Profile from '../screens/Profile';
-
-function renderWithRouter(ui: ReactElement<any, string | JSXElementConstructor<any>>, { route = '/' } = {}) {
-  window.history.pushState({}, 'Test page', route);
-  return render(ui, { wrapper: BrowserRouter });
-}
+import { renderWithRouter } from '../utils/renderWithRouter';
 
 describe('Teste da tela Profile', () => {
-  render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
-  );
-
   test('Teste se o título está correto', () => {
-    renderWithRouter(<Profile />);
+    renderWithRouter(<App />, { route: '/profile' });
     const pageTitle = screen.getByTestId('page-title');
     expect(pageTitle).toHaveTextContent('Profile');
   });

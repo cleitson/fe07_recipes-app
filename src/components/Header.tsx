@@ -1,4 +1,4 @@
-import { Outlet, useLocation, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { useState } from 'react';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
@@ -80,13 +80,10 @@ export default function Header() {
   return (
     <>
       <header>{ getHeaderText() }</header>
-      <Outlet />
-
       {toggleSearch
       && (
         <SearchBar />
       )}
-
       {!toggleSearch
       && []}
     </>

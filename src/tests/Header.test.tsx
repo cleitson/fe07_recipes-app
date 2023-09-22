@@ -72,6 +72,7 @@ describe('Teste do componente Header', () => {
     userEvent.click(searchButton);
     expect(screen.queryByTestId('search-input')).not.toBeInTheDocument();
   });
+
   test('Testa se ao Clicar em profileIcon, e redirecionado para a pagina de perfil', async () => {
     renderWithRouter(<App />, { route: '/meals' });
     const profileIcon = screen.getByRole('img', { name: /profile icon/i });

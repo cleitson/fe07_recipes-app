@@ -1,6 +1,7 @@
 // Componente da tela principal de receitas de comidas;
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer/Footer';
+import Header from '../components/Header';
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ export default function Profile() {
 
   return (
     <>
+      <Header />
       <p>
         Email:
         {' '}

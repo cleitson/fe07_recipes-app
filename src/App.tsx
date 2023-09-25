@@ -8,7 +8,6 @@ import Profile from './screens/Profile';
 import FavoriteRecipes from './screens/FavoriteRecipes';
 import Drinks from './screens/Drinks';
 import DoneRecipes from './screens/DoneRecipes';
-import Header from './components/Header';
 import NotFound from './components/NotFound';
 
 function App() {
@@ -16,13 +15,11 @@ function App() {
     // Rotas;
     <Routes>
       <Route path="/" element={ <Login /> } />
-      <Route path="/" element={ <Header /> }>
-        <Route path="meals" element={ <Meals /> } />
-        <Route path="done-recipes" element={ <DoneRecipes /> } />
-        <Route path="drinks" element={ <Drinks /> } />
-        <Route path="favorite-recipes" element={ <FavoriteRecipes /> } />
-        <Route path="profile" element={ <Profile /> } />
-      </Route>
+      <Route path="/meals" element={ <Meals /> } />
+      <Route path="/done-recipes" element={ <DoneRecipes /> } />
+      <Route path="/drinks" element={ <Drinks /> } />
+      <Route path="/favorite-recipes" element={ <FavoriteRecipes /> } />
+      <Route path="/profile" element={ <Profile /> } />
       <Route path="/*" element={ <NotFound /> } />
     </Routes>
   );

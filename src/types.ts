@@ -22,6 +22,12 @@ export type SearchType = {
 
 export type MealsType = {
   idMeal: string,
-  stringMeal: string,
-  stringMealThumb: string,
+  strMeal: string,
+  strMealThumb: string,
+};
+
+export type DrinksType = {
+  idDrink: string,
+  strDrink: string,
+  strDrinkThumb: string,
 };

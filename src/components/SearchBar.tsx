@@ -75,11 +75,12 @@ export default function SearchBar() {
   return (
     <>
       <input
-        type="text"
+        type="textbox"
         value={ form.search }
         name="search"
         data-testid="search-input"
         onChange={ handleChange }
+        placeholder="Pesquise aqui"
       />
       <label>
         <input

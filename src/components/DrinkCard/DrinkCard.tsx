@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './DrinkCard.css';
 import { DrinksType } from '../../types';
+import recipeAppContext from '../../context/recipeAppContext';
 
-type CardProps = {
-  recipes: DrinksType[];
-};
+function DrinkCard() {
+  const { apiData, loading } = useContext(recipeAppContext);
 
-function DrinkCard({ recipes }: CardProps) {
+  const transformedDrinks: DrinksType[] = (apiData?.drinks || []).map((drink) => ({
+    idDrink: drink.idDrink || '',
+    strDrink: drink.strDrink || '',
+    strDrinkThumb: drink.strDrinkThumb || '',
+  }));
+
+  if (loading || !transformedDrinks.length) return <p>Loading...</p>;
+
   return (
     <div className="card-container">
-      {recipes
-        && recipes.length > 0
-        && recipes.slice(0, 12).map(({ idDrink, strDrink, strDrinkThumb }, index) => (
+      {transformedDrinks.slice(0, 12)
+        .map(({ idDrink, strDrink, strDrinkThumb }, index) => (
           <div
             key={ idDrink }
             data-testid={ `${index}-recipe-card` }

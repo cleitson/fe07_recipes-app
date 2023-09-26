@@ -1,30 +1,35 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './MealCard.css';
 import { MealsType } from '../../types';
+import recipeAppContext from '../../context/recipeAppContext';
 
-type CardProps = {
-  recipes: MealsType[];
-};
+function MealCard() {
+  const { apiData, loading } = useContext(recipeAppContext);
 
-function MealCard({ recipes }: CardProps) {
+  const transformedMeals: MealsType[] = (apiData?.meals || []).map((meal) => ({
+    idMeal: meal.idMeal || '',
+    strMeal: meal.strMeal || '',
+    strMealThumb: meal.strMealThumb || '',
+  }));
+
+  if (loading || !transformedMeals.length) return <p>Loading...</p>;
+
   return (
     <div className="card-container">
-      {recipes
-        && recipes.length > 0
-        && recipes.slice(0, 12).map(({ idMeal, strMeal, strMealThumb }, index) => (
-          <div
-            key={ idMeal }
-            data-testid={ `${index}-recipe-card` }
-            className="card-item"
-          >
-            <img
-              src={ strMealThumb }
-              alt={ strMeal }
-              data-testid={ `${index}-card-img` }
-            />
-            <h2 data-testid={ `${index}-card-name` }>{strMeal}</h2>
-          </div>
-        ))}
+      {transformedMeals.slice(0, 12).map(({ idMeal, strMeal, strMealThumb }, index) => (
+        <div
+          key={ idMeal }
+          data-testid={ `${index}-recipe-card` }
+          className="card-item"
+        >
+          <img
+            src={ strMealThumb }
+            alt={ strMeal }
+            data-testid={ `${index}-card-img` }
+          />
+          <h2 data-testid={ `${index}-card-name` }>{strMeal}</h2>
+        </div>
+      ))}
     </div>
   );
 }

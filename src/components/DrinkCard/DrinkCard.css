@@ -1,0 +1,30 @@
+.card-container {
+  background-color: #f8f9fa;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.card-item {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 200px;
+}
+
+.card-item img {
+  border-radius: 5px;
+  max-height: 120px;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.card-item h2 {
+  color: #333;
+  font-size: 1.2em;
+  margin-top: 10px;
+}

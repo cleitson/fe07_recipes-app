@@ -8,7 +8,6 @@ type ContextProviderProps = {
 };
 
 export default function ContextProvider({ children }: ContextProviderProps) {
-  const [search, setSearch] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
   const [apiData, setApiData] = useState<ApiType>({});
 

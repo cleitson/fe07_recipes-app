@@ -43,3 +43,15 @@ export type DoneRecipeType = {
   doneDate: string,
   tags: string[]
 };
+
+export type FavoriteType = {
+  id: string,
+  type: string,
+  nationality: string,
+  category: string,
+  alcoholicOrNot: string,
+  name: string,
+  image: string,
+  doneDate: string,
+  tags: string,
+};
